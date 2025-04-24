@@ -1,0 +1,17 @@
+with the query SELECT AVG(danceability), AVG(energy), AVG(valence) FROM songs;
+the data shows
++-------------------+-------------+--------------+
+| AVG(danceability) | AVG(energy) | AVG(valence) |
++-------------------+-------------+--------------+
+| 0.71646           | 0.65906     | 0.484443     |
++-------------------+-------------+--------------+
+so i randomly choose 0.5 as a threshold for my Aura assumptions and
+i would say that this Aura describes someone who, one hand likes energetic dancy music but also sad songs (the low valence)
+
+to the second part i think, asking the question at all, in this context, is not a scientific approach.
+Assuming that the consumed music does depend on the current mood and is not influenced by other people or other environmental factors like, just consuming music to avoid other noises,
+but really just consumed out of an emotional state.
+then the parameters chosen should clearly reflect that state, not a mean with no variance.
+energy for example if someone in a more neutal state listens to music that stays around 0.5,
+they could have the same score as someone who listens 50% of the time to very low and 50% to very high energetic music.
+i don't think its sensible to calculate a Value that speaks to the users moods the reasons to listen to music and surrounding factors are to complex, to make any such assumptions.

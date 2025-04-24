@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Requestes Prices
+{% endblock %}
+
+{% block main %}
+
+    <div class="section" >
+        <h1 class="mb-4">Requested Stock prices</h1>
+        <div class="d-flex justify-content-center">
+            <table class="table table-bordered table-striped w-auto">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ price | usd }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

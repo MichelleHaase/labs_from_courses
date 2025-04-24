@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <h1 class="mb-4">History</h1>
+        <div class="d-flex justify-content-center">
+            {% if history %}
+                <table class="table table-bordered table-striped w-auto">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Symbol</th>
+                            <th>Price</th>
+                            <th>Shares</th>
+                            <th>Timecode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stock in history %}
+                        <tr>
+                            <td>{{ stock.type }}</td>
+                            <td>{{ stock.symbol }}</td>
+                            <td>{{ stock.stock_price | usd }}</td>
+                            <td>{{ stock.shares }}</td>
+                            <td>{{ stock.timestamp }}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            {% else %}
+                <h2>No Transactions</h2>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

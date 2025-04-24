@@ -1,0 +1,21 @@
+sort1 uses: Bubble sort
+
+How do you know?: it was fast on the sorted Data, since it only has to go thru all the Datapoints once and check that nothing needs switching, to exit.
+
+sort2 uses: Merge sort
+
+How do you know?: it was the fastest on the unsorted Datasets, which makes sense since it's O(n log n), but it as fast as bubble sort on the sorted Data since they both have condotions to check that everything is already in order.
+
+sort3 uses: Selection sort
+
+How do you know?:it was the slowest on the sorted Dataset, there is no early exit condition if the Data is already sorted so the whole Dataset has to be checked.
+
+
+            fast to slow
+random      2(0s), 3(3s) ,1(7s)
+sorted      2(2s), 1(2s), 3(4s)
+reversed    2(1s), 3(4s), 1(6s)
+
+2 merge
+3 selection
+1 bubble

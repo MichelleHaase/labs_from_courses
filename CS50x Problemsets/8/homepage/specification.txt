@@ -1,0 +1,25 @@
+Some of the HTML Tags
+<head>
+<body>
+<link>
+<script>
+<meta>
+<title>
+<nav>
+<div>
+<a>
+<button>
+<p>
+<ul>
+<li>
+<span>
+
+CSS properties
+height
+margin
+padding
+background
+align-items
+
+I used Bootstraps Navbar for coordination, the hero section for background images and grid for scaling.
+I used JS for the functionality fort the Links in the Navbar and a success message in the Reservation page

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stock
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <h1 class="mb-4">Overview</h1>
+        <div class="d-flex justify-content-center">
+            {% if overview %}
+                <table class="table table-bordered table-striped w-auto">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Symbol</th>
+                            <th>Shares</th>
+                            <th>Current price</th>
+                            <th>Current Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stock in overview %}
+                        <tr>
+                            <td>{{ stock.company }}</td>
+                            <td>{{ stock.symbol }}</td>
+                            <td>{{ stock.shares }}</td>
+                            <td>{{ stock.current_price | usd }}</td>
+                            <td>{{ stock.value | usd }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr style="border-top: 2px solid black;">
+                            <td></td>
+                            <td colspan="2"><strong>Cash</strong></td>
+                            <td colspan="3">{{ cash | usd }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="2"><strong>Total</strong></td>
+                            <td colspan="3">{{ total | usd }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            {% else %}
+            <div>
+                <h2 class="mb-4">No Stocks yet</h2>
+                <h3 class="mb-4">available cash: {{ cash | usd }}</h3>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

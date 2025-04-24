@@ -1,0 +1,91 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    background: url('./pictures/home_background_stock.jpg') no-repeat center center/cover;
+
+}
+
+.background-wrapper {
+    background: url('./pictures/tasse_kaffee.jpg') center/cover;
+}
+
+.hero-reservation {
+    background: url('./pictures/kaffe_innen2.jpg') no-repeat center center/cover;
+}
+
+.hero-location {
+    background: url('./pictures/bar2.jpg') no-repeat center center/cover;
+}
+
+.hero-location,
+.hero,
+.hero-about,
+.hero-reservation {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container-about {
+    padding: 100px 15px;
+    z-index: 1;
+    position: relative;
+}
+
+.hero nav {
+    margin-top: 30px;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 50px;
+}
+
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+
+.text-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.text-box p,
+.text-box h2 {
+    text-align: left;
+}
+
+.Res {
+    padding: 30px;
+}
+
+.text-box-about {
+    background: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.img-fluid {
+    object-fit: contain;
+    max-height: 70vh;
+}

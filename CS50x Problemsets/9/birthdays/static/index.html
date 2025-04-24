@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                let body = document.querySelector("body");
+
+                buttonDop = document.querySelector("#dopamine");
+                buttonGlu = document.querySelector("#glutamate");
+                buttonSer = document.querySelector("#serotonin");
+                buttonGABA = document.querySelector("#GABA");
+                buttonEpi = document.querySelector("#epinephrine");
+
+                document.querySelector("#dopamine").addEventListener("click", function() {
+                    buttonDop.style.backgroundColor = "red";
+                    text = document.querySelector("#DopBut");
+                    text.textContent = "Incorrect";
+                    buttonDop.disabled = true;
+                    buttonGlu.disabled = true;
+                    buttonSer.disabled = true;
+                    buttonGABA.disabled = true;
+                    buttonEpi.disabled = true;
+                });
+                document.querySelector("#glutamate").addEventListener("click", function() {
+                    buttonGlu.style.backgroundColor = "green";
+                    text = document.querySelector("#GluBut");
+                    text.textContent = "Correct";
+                    buttonDop.disabled = true;
+                    buttonGlu.disabled = true;
+                    buttonSer.disabled = true;
+                    buttonGABA.disabled = true;
+                    buttonEpi.disabled = true;
+                });
+                document.querySelector("#serotonin").addEventListener("click", function() {
+                    buttonSer.style.backgroundColor = "red";
+                    text = document.querySelector("#SerBut");
+                    text.textContent = "Incorrect";
+                    buttonDop.disabled = true;
+                    buttonGlu.disabled = true;
+                    buttonSer.disabled = true;
+                    buttonGABA.disabled = true;
+                    buttonEpi.disabled = true;
+                });
+                document.querySelector("#GABA").addEventListener("click", function() {
+                    buttonGABA.style.backgroundColor = "red";
+                    text = document.querySelector("#GABABut");
+                    text.textContent = "Incorrect";
+                    buttonDop.disabled = true;
+                    buttonGlu.disabled = true;
+                    buttonSer.disabled = true;
+                    buttonGABA.disabled = true;
+                    buttonEpi.disabled = true;
+                });
+                document.querySelector("#epinephrine").addEventListener("click", function() {
+                    buttonEpi.style.backgroundColor = "red";
+                    text = document.querySelector("#EpiBut");
+                    text.textContent = "Incorrect";
+                    buttonDop.disabled = true;
+                    buttonGlu.disabled = true;
+                    buttonSer.disabled = true;
+                    buttonGABA.disabled = true;
+                    buttonEpi.disabled = true;
+                });
+                document.querySelector("form").addEventListener("submit", function(event){
+                    event.preventDefault();
+                    if (document.querySelector("input").value.toLowerCase() == "fat")
+                    {
+                        button = document.querySelector("#Q2_Answer");
+                        button.style.backgroundColor = "green";
+                        text = document.querySelector("#output");
+                        text.textContent = "Correct";
+                    }
+                    else
+                    {
+                        button = document.querySelector("#Q2_Answer");
+                        button.style.backgroundColor = "red";
+                        text = document.querySelector("#output");
+                        text.textContent = "Incorrect";
+                    }
+
+                });
+            });
+
+            // TODO: Add code to check answers to questions
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3> What is the most used neurotransmitter in the Human brain</h3>
+                <button id="glutamate" type="button">glutamate</button>
+                <p id="GluBut"></p>
+                <button id="epinephrine" type="button">epinephrine</button>
+                <p id="EpiBut"></p>
+                <button id="GABA" type="button">GABA</button>
+                <p id="GABABut"></p>
+                <button id="serotonin" type="button">serotonin</button>
+                <p id="SerBut"></p>
+                <button id="dopamine" type="button">dopamine</button>
+                <p id="DopBut"></p>
+
+                <!-- make up question with html h3 heading for text question
+                 glutamate epinephrine GABA serotonin dopamine
+                 one button per answer only one right
+                 JS to colour buttons when clicked red and "incorrect" under neath; green "correct"
+                TODO: Add multiple choice question here -->
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <form return false;>
+                    <h3>What does, with about 60%, make up the main proportion of the Brain</h3>
+                    <input id="Q2_Answer" autocomplete="off" type="text">
+                    <input id="input" type="submit" text="submit">
+                    <p id="output"></p>
+                </form>
+
+                <!-- free text question h3 input field and confirm button
+                  fat
+                 JS text field green when right "incorrect" and again as above
+                TODO: Add free response question here -->
+            </div>
+        </div>
+    </body>
+</html>
