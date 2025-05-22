@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS schools(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(25) NOT NULL,
+    type VARCHAR(25) NOT NULL,
+    founding_year INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS companies(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    field VARCHAR(255) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS attended(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    school_id INT NOT NULL,
+    started DATE NOT NULL,
+    ended DATE,
+    graduation_date DATE,
+
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (school_id) REFERENCES schools(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS worked(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    company_id INT NOT NULL,
+    started DATE NOT NULL,
+    ended DATE,
+
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE
+);
