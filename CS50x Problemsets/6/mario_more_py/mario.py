@@ -10,7 +10,7 @@ def main():
             break
 
     for row in range(height):
-        for columns in range(height-row-1):
+        for columns in range(height - row - 1):
             print(" ", end="")
         for hash in range(row + 1):
             print("#", end="")

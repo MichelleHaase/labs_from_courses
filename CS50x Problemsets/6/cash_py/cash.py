@@ -8,7 +8,7 @@ def main():
     while True:
         change = input("Change? ").strip()
         try:
-            change = float(change)*100
+            change = float(change) * 100
         except ValueError:
             continue
         # break out of Loop if positive float

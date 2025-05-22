@@ -6,7 +6,8 @@ def main() -> None:
     password = input("password? ").strip()
     db.execute(
         """ UPDATE "users" SET "password" = ?
-            WHERE "username" = "admin"; """, password
+            WHERE "username" = "admin"; """,
+        password,
     )
     print("Hacked!")
 

@@ -5,7 +5,6 @@ class Jar:
             raise ValueError("capacity needs to be a positive whole number")
         self._size = size
 
-
     def __str__(self):
         return "🍪" * self._size
 
@@ -26,4 +25,3 @@ class Jar:
     @property
     def size(self):
         return self._size
-

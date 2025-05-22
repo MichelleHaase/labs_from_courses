@@ -14,14 +14,14 @@ def gauge(percentage):
 
 def convert(fraction):
     # while True:
-        # try:
+    # try:
     x, y = fraction.split("/")
     # if int(x) <= int(y):
     z = (int(x) / int(y)) * 100
     return int(round(z))
-        # except (ValueError, ZeroDivisionError):
-        #     # fraction = input("How full is the Tank? ")
-        #     break
+    # except (ValueError, ZeroDivisionError):
+    #     # fraction = input("How full is the Tank? ")
+    #     break
 
 
 if __name__ == "__main__":

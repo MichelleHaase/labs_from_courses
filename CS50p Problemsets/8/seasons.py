@@ -19,9 +19,10 @@ def days(Birthday):
         sys.exit("Invalid Date format")
     return minutes(days)
 
+
 def minutes(days):
     engine = inflect.engine()
-    minutes = int(round(float(str(days).split("day")[0]),0)) *24 *60
+    minutes = int(round(float(str(days).split("day")[0]), 0)) * 24 * 60
     minutes_text = engine.number_to_words(minutes).replace(" and", "").capitalize()
     return f"{minutes_text} minutes"
 

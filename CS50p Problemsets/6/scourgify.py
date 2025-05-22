@@ -8,17 +8,17 @@ elif len(sys.argv) > 3:
 
 if not sys.argv[1].endswith(".csv") or not sys.argv[2].endswith(".csv"):
     sys.exit("Not a CSV file")
-names =[]
+names = []
 house = []
 try:
     with open(sys.argv[1]) as file:
         reader = csv.reader(file)
         for line in reader:
-             if line[0] != "name":
+            if line[0] != "name":
                 names.append(line[0])
                 house.append(line[1].strip())
 except FileNotFoundError:
-        sys.exit("File does not exist")
+    sys.exit("File does not exist")
 
 lastname = []
 firstname = []
@@ -28,9 +28,7 @@ for name in names:
     firstname.append(name.split(",")[1].strip())
 
 with open(sys.argv[2], "w") as outfile:
-     writer = csv.DictWriter(outfile, fieldnames = ["first", "last", "house"])
-     writer.writeheader()
-     for i in range(len(firstname)):
-        writer.writerow({"first" :firstname[i], "last" : lastname[i], "house" : house[i]})
-
-
+    writer = csv.DictWriter(outfile, fieldnames=["first", "last", "house"])
+    writer.writeheader()
+    for i in range(len(firstname)):
+        writer.writerow({"first": firstname[i], "last": lastname[i], "house": house[i]})

@@ -1,6 +1,7 @@
 """
 Tic Tac Toe Player
 """
+
 import copy
 import math
 
@@ -13,9 +14,7 @@ def initial_state():
     """
     Returns starting state of the board.
     """
-    return [[EMPTY, EMPTY, EMPTY],
-            [EMPTY, EMPTY, EMPTY],
-            [EMPTY, EMPTY, EMPTY]]
+    return [[EMPTY, EMPTY, EMPTY], [EMPTY, EMPTY, EMPTY], [EMPTY, EMPTY, EMPTY]]
 
 
 def player(board):
@@ -35,7 +34,6 @@ def player(board):
     return X
 
 
-
 def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
@@ -44,9 +42,8 @@ def actions(board):
     for indx_row, list in enumerate(board):
         for indx_col, item in enumerate(list):
             if item == None:
-                moves.add((indx_row,indx_col))
+                moves.add((indx_row, indx_col))
     return moves
-
 
 
 def result(board, action):
@@ -56,7 +53,7 @@ def result(board, action):
     new_state = copy.deepcopy(board)
     current_player = player(new_state)
     if action not in actions(board):
-        raise ValueError('invalid Action')
+        raise ValueError("invalid Action")
     for indx_row, list in enumerate(new_state):
         for indx_col, item in enumerate(list):
             if indx_row == action[0] and indx_col == action[1]:
@@ -75,7 +72,10 @@ def winner(board):
 
     # check if any cols have the symbol thats not none
     for col in range(3):
-        if board[0][col] == board[1][col] == board[2][col] and board[0][col] is not None:
+        if (
+            board[0][col] == board[1][col] == board[2][col]
+            and board[0][col] is not None
+        ):
             return board[0][col]
     # checking diagonals maually since there are only two
     if board[0][0] == board[1][1] == board[2][2] and board[0][0] is not None:
@@ -125,45 +125,44 @@ def minimax(board):
         return None
 
     if player(board) == O:
-        best_score = float('inf')
+        best_score = float("inf")
         best_move = None
         for move in actions(board):
-            new_score = maxi(result(board,move))
+            new_score = maxi(result(board, move))
             if new_score < best_score:
                 best_score = new_score
                 best_move = move
         return best_move
 
-    best_score = float('-inf') # player X
+    best_score = float("-inf")  # player X
     best_move = None
     for move in actions(board):
-        new_score = mini(result(board,move))
+        new_score = mini(result(board, move))
         if new_score > best_score:
             best_score = new_score
             best_move = move
     return best_move
 
 
-def mini(board): # player = O
+def mini(board):  # player = O
     """
     Returns optimal move for O player
     """
     if terminal(board):
         return utility(board)
-    best_move = float('inf')
+    best_move = float("inf")
     for move in actions(board):
-        best_move = min(best_move,maxi(result(board,move)))
+        best_move = min(best_move, maxi(result(board, move)))
     return best_move
 
 
-def maxi(board): # player = X
+def maxi(board):  # player = X
     """
     Returns optimal move for X player
     """
     if terminal(board):
         return utility(board)
-    best_move = float('-inf')
+    best_move = float("-inf")
     for move in actions(board):
-        best_move = max(best_move,mini(result(board,move)))
+        best_move = max(best_move, mini(result(board, move)))
     return best_move
-

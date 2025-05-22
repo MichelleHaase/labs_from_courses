@@ -13,10 +13,11 @@ CKnave = Symbol("C is a Knave")
 # A says "I am both a knight and a knave."
 knowledge0 = And(
     # either knight or knave
-    Or(AKnight, AKnave), Not(And(AKnight, AKnave)),
+    Or(AKnight, AKnave),
+    Not(And(AKnight, AKnave)),
     # if A lies hes a Knave
     Implication(AKnight, And(AKnight, AKnave)),
-    Implication(AKnave, Not(And(AKnight, AKnave)))
+    Implication(AKnave, Not(And(AKnight, AKnave))),
 )
 
 # Puzzle 1
@@ -24,10 +25,12 @@ knowledge0 = And(
 # B says nothing.
 knowledge1 = And(
     # either knight or knave
-    Or(AKnight, AKnave), Not(And(AKnight, AKnave)),
-    Or(BKnight, BKnave), Not(And(BKnight, BKnave)),
+    Or(AKnight, AKnave),
+    Not(And(AKnight, AKnave)),
+    Or(BKnight, BKnave),
+    Not(And(BKnight, BKnave)),
     Implication(AKnight, And(AKnave, BKnave)),
-    Implication(AKnave, Not(And(AKnave, BKnave)))
+    Implication(AKnave, Not(And(AKnave, BKnave))),
 )
 
 # Puzzle 2
@@ -35,13 +38,14 @@ knowledge1 = And(
 # B says "We are of different kinds."
 knowledge2 = And(
     # either knight or knave
-    Or(AKnight, AKnave), Not(And(AKnight, AKnave)),
-    Or(BKnight, BKnave), Not(And(BKnight, BKnave)),
+    Or(AKnight, AKnave),
+    Not(And(AKnight, AKnave)),
+    Or(BKnight, BKnave),
+    Not(And(BKnight, BKnave)),
     Implication(AKnight, Or((And(AKnight, BKnight)), (And(AKnave, BKnave)))),
     Implication(AKnave, Or((And(AKnight, BKnave)), (And(BKnight, AKnave)))),
     Implication(BKnave, Or((And(AKnight, BKnight)), (And(AKnave, BKnave)))),
-    Implication(BKnight, Or((And(AKnight, BKnave)), (And(BKnight, AKnave))))
-
+    Implication(BKnight, Or((And(AKnight, BKnave)), (And(BKnight, AKnave)))),
 )
 
 # Puzzle 3
@@ -51,9 +55,12 @@ knowledge2 = And(
 # C says "A is a knight."
 knowledge3 = And(
     # either knight or knave
-    Or(AKnight, AKnave), Not(And(AKnight, AKnave)),
-    Or(BKnight, BKnave), Not(And(BKnight, BKnave)),
-    Or(CKnight, CKnave), Not(And(CKnight, CKnave)),
+    Or(AKnight, AKnave),
+    Not(And(AKnight, AKnave)),
+    Or(BKnight, BKnave),
+    Not(And(BKnight, BKnave)),
+    Or(CKnight, CKnave),
+    Not(And(CKnight, CKnave)),
     Implication(AKnight, And(Or(AKnight, AKnave), Not(And(AKnight, AKnave)))),
     Implication(AKnave, Not(Or(AKnight, AKnave))),
     Implication(AKnight, BKnave),
@@ -71,7 +78,7 @@ def main():
         ("Puzzle 0", knowledge0),
         ("Puzzle 1", knowledge1),
         ("Puzzle 2", knowledge2),
-        ("Puzzle 3", knowledge3)
+        ("Puzzle 3", knowledge3),
     ]
     for puzzle, knowledge in puzzles:
         print(puzzle)

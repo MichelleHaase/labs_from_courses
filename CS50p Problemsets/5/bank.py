@@ -1,6 +1,6 @@
 def main():
     greeting = input("Hi! ")
-    money_owed = (value(greeting))
+    money_owed = value(greeting)
     print(f"${money_owed}")
 
 

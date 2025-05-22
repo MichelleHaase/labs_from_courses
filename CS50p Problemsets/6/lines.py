@@ -3,6 +3,7 @@
     should only work on py files - 'Not a Python file ' sys.exit
     inexistnt filr - 'File does not exist' sys.exit
 """
+
 import sys
 
 if len(sys.argv) <= 1:
@@ -13,14 +14,18 @@ elif len(sys.argv) > 2:
 if not sys.argv[1].endswith(".py"):
     sys.exit("Not a Python file")
 
-count=0
+count = 0
 try:
     with open(sys.argv[1]) as file:
         for line in file:
-            if not line.lstrip().startswith("#")  and not line.isspace() and not line.startswith("\t"):
+            if (
+                not line.lstrip().startswith("#")
+                and not line.isspace()
+                and not line.startswith("\t")
+            ):
                 count = count + 1
 except FileNotFoundError:
-        sys.exit("File does not exist")
+    sys.exit("File does not exist")
 
 print(count)
 

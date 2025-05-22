@@ -1,6 +1,7 @@
 from working import convert
 import pytest
 
+
 def test_Sonderzeichen():
     with pytest.raises(ValueError):
         convert("05 AM - 06 PM")
@@ -11,6 +12,7 @@ def test_Sonderzeichen():
     with pytest.raises(ValueError):
         convert("05 AM . 06 PM")
 
+
 def test_missingStuff():
     with pytest.raises(ValueError):
         convert("05 to 06 PM")
@@ -18,6 +20,7 @@ def test_missingStuff():
         convert("05 AM to 06")
     with pytest.raises(ValueError):
         convert("05 AMto06 PM")
+
 
 def test_wrongTime():
     with pytest.raises(ValueError):
@@ -34,6 +37,5 @@ def test_wrongTime():
     # assert convert("  10:30 PM to 8 AM") == f"22:30 to 08:00"
     # assert convert("    10:30 PM to 8 AM") == f"22:30 to 08:00"
 
+
 # def test_right_input():
-
-

@@ -20,4 +20,4 @@ try:
         # print(table[1])
         print(tabulate(table[1:], table[0], tablefmt="grid"))
 except FileNotFoundError:
-        sys.exit("File does not exist")
+    sys.exit("File does not exist")

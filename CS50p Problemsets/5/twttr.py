@@ -1,6 +1,6 @@
 def main():
     input1 = input("Input: ").strip()
-    short_input= shorten(input1)
+    short_input = shorten(input1)
     print(short_input)
 
 
@@ -12,7 +12,7 @@ def shorten(word):
         if i in List1:
             continue
         else:
-            result= result + i
+            result = result + i
     return result
 
 
